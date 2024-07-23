@@ -1,0 +1,52 @@
+<!-- views/realTimeProducts.handlebars -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Productos en Tiempo Real</title>
+</head>
+<body>
+  <h1>Listado de Productos en Tiempo Real</h1>
+  <ul id="productos-lista">
+    {{#each productos}}
+      <li>{{title}} - {{price}}</li>
+    {{/each}}
+  </ul>
+
+  <form id="form-agregar" action="/api/products/" method="POST">
+    <input type="text" name="title" placeholder="Título">
+    <input type="text" name="price" placeholder="Precio">
+    <button type="submit">Agregar Producto</button>
+  </form>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('productos', (productos) => {
+      actualizarListaProductos(productos);
+    });
+
+    function actualizarListaProductos(productos) {
+      const lista = document.getElementById('productos-lista');
+      lista.innerHTML = '';
+      productos.forEach((producto) => {
+        const li = document.createElement('li');
+        li.textContent = `${producto.title} - ${producto.price}`;
+        lista.appendChild(li);
+      });
+    }
+
+    document.getElementById('form-agregar').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const producto = {
+        title: formData.get('title'),
+        price: parseFloat(formData.get('price'))
+      };
+      socket.emit('nuevoProducto', producto);
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>

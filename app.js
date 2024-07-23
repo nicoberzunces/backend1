@@ -1,21 +1,74 @@
 import express from 'express';
+import exphbs from 'express-handlebars';
+import http from 'http';
+import { Server as SocketServer } from 'socket.io';
 import bodyParser from 'body-parser';
+import fs from 'fs';
+import { v4 as uuidv4 } from 'uuid';
+
 import productsRouter from './routes/products.js';
 import cartsRouter from './routes/carts.js';
 
 const app = express();
-const PORT = 8080;
+const server = http.createServer(app);
+const io = new SocketServer(server);
 
-// Middleware para parsear application/json
+const PORT = 8080;
+const productosFilePath = './data/productos.json';
+const carritoFilePath = './data/carrito.json';
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
 app.use(bodyParser.json());
 
-// Rutas de productos
 app.use('/api/products', productsRouter);
-
-// Rutas de carritos
 app.use('/api/carts', cartsRouter);
 
-// Iniciar servidor
-app.listen(PORT, () => {
+app.get('/', (req, res) => {
+  const productos = obtenerProductos();
+  res.render('home', { productos });
+});
+
+app.get('/realtimeproducts', (req, res) => {
+  const productos = obtenerProductos();
+  res.render('realTimeProducts', { productos });
+});
+
+io.on('connection', (socket) => {
+  console.log('Nuevo cliente conectado');
+
+  socket.emit('productos', obtenerProductos());
+
+  socket.on('nuevoProducto', (producto) => {
+    agregarNuevoProducto(producto);
+    io.emit('productos', obtenerProductos());
+  });
+});
+
+function obtenerProductos() {
+  try {
+    const productosData = fs.readFileSync(productosFilePath, 'utf-8');
+    return JSON.parse(productosData);
+  } catch (error) {
+    console.error('Error al leer productos:', error);
+    return [];
+  }
+}
+
+function agregarNuevoProducto(producto) {
+  try {
+    let productos = obtenerProductos();
+    producto.id = uuidv4();
+    productos.push(producto);
+    fs.writeFileSync(productosFilePath, JSON.stringify(productos, null, 2));
+  } catch (error) {
+    console.error('Error al agregar producto:', error);
+  }
+}
+
+server.listen(PORT, () => {
   console.log(`Servidor escuchando en puerto ${PORT}`);
 });
+
+export default app;

@@ -1,22 +1,58 @@
 [
-    {
-      "id": "1",
-      "title": "Producto 1",
-      "description": "Descripción del producto 1",
-      "code": "PROD001",
-      "price": 100,
-      "status": true,
-      "stock": 10,
-      "category": "Electrónicos"
-    },
-    {
-      "id": "2",
-      "title": "Producto 2",
-      "description": "Descripción del producto 2",
-      "code": "PROD002",
-      "price": 150,
-      "status": true,
-      "stock": 5,
-      "category": "Hogar"
-    }
-  ]
+  {
+    "id": "1",
+    "title": "Samsung Galaxy S21",
+    "description": "Potente smartphone con cámara de alta resolución y pantalla AMOLED.",
+    "code": "S21-001",
+    "price": 999,
+    "status": true,
+    "stock": 15,
+    "category": "Celulares",
+    "thumbnails": [
+      "https://example.com/thumbnail1.jpg",
+      "https://example.com/thumbnail2.jpg"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "iPhone 13 Pro",
+    "description": "Último modelo de iPhone con triple cámara y chip A15 Bionic.",
+    "code": "IP13-002",
+    "price": 1299,
+    "status": true,
+    "stock": 10,
+    "category": "Celulares",
+    "thumbnails": [
+      "https://example.com/thumbnail3.jpg",
+      "https://example.com/thumbnail4.jpg"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Xiaomi Redmi Note 10",
+    "description": "Económico y potente con pantalla de 120Hz y cámara cuádruple.",
+    "code": "RN10-003",
+    "price": 299,
+    "status": true,
+    "stock": 20,
+    "category": "Celulares",
+    "thumbnails": [
+      "https://example.com/thumbnail5.jpg",
+      "https://example.com/thumbnail6.jpg"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Google Pixel 5",
+    "description": "Smartphone con enfoque en la fotografía y actualizaciones rápidas de Android.",
+    "code": "PIX5-004",
+    "price": 699,
+    "status": true,
+    "stock": 8,
+    "category": "Celulares",
+    "thumbnails": [
+      "https://example.com/thumbnail7.jpg",
+      "https://example.com/thumbnail8.jpg"
+    ]
+  }
+]
