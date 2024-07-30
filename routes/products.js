@@ -48,4 +48,20 @@ router.post('/', (req, res) => {
   }
 });
 
+router.delete('/:id', (req, res) => {
+  try {
+    const productosData = fs.readFileSync(productosFilePath, 'utf-8');
+    let productos = JSON.parse(productosData);
+    const id = req.params.id;
+
+    productos = productos.filter(producto => producto.id !== id);
+    fs.writeFileSync(productosFilePath, JSON.stringify(productos, null, 2));
+
+    res.status(200).json({ message: 'Producto eliminado correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar producto:', error);
+    res.status(500).json({ error: 'Error al eliminar producto' });
+  }
+});
+
 export default router;

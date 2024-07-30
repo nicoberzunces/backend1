@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 const router = express.Router();
 const carritoFilePath = './data/carrito.json';
 
+
 router.post('/', (req, res) => {
   try {
     const newCart = {
@@ -20,25 +21,29 @@ router.post('/', (req, res) => {
   }
 });
 
+
 router.post('/:cid/product/:pid', (req, res) => {
   try {
     const { quantity } = req.body;
-    const carrito = JSON.parse(fs.readFileSync(carritoFilePath, 'utf-8'));
+    const carritoId = req.params.cid;
     const productId = req.params.pid;
 
-    let productExists = false;
-    carrito.products.forEach(product => {
-      if (product.id === productId) {
-        product.quantity += parseInt(quantity);
-        productExists = true;
-      }
-    });
+    let carritos = JSON.parse(fs.readFileSync(carritoFilePath, 'utf-8'));
+    let carrito = carritos.find(c => c.id === carritoId);
 
-    if (!productExists) {
+    if (!carrito) {
+      return res.status(404).json({ error: 'Carrito no encontrado' });
+    }
+
+    let product = carrito.products.find(p => p.id === productId);
+
+    if (product) {
+      product.quantity += parseInt(quantity);
+    } else {
       carrito.products.push({ id: productId, quantity: parseInt(quantity) });
     }
 
-    fs.writeFileSync(carritoFilePath, JSON.stringify(carrito, null, 2));
+    fs.writeFileSync(carritoFilePath, JSON.stringify(carritos, null, 2));
     res.status(200).json({ message: 'Producto agregado al carrito correctamente' });
   } catch (error) {
     console.error('Error al agregar producto al carrito:', error);

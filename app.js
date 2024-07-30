@@ -1,5 +1,5 @@
 import express from 'express';
-import exphbs from 'express-handlebars';
+import { create } from 'express-handlebars';
 import http from 'http';
 import { Server as SocketServer } from 'socket.io';
 import bodyParser from 'body-parser';
@@ -17,10 +17,15 @@ const PORT = 8080;
 const productosFilePath = './data/productos.json';
 const carritoFilePath = './data/carrito.json';
 
-app.engine('handlebars', exphbs());
+
+const hbs = create({ extname: '.handlebars' });
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+
 app.use(bodyParser.json());
+app.use(express.static('public'));
+
 
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);

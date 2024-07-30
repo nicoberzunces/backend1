@@ -54,5 +54,10 @@
       "https://example.com/thumbnail7.jpg",
       "https://example.com/thumbnail8.jpg"
     ]
+  },
+  {
+    "title": "hola",
+    "price": 500,
+    "id": "1faefee7-08c7-4c8c-83dd-cbd9412e0eec"
   }
 ]
