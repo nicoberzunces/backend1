@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a nuestra tienda</h1>
+        <nav>
+            <a href="/products">Ver Productos</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Productos destacados</h2>
+        <!-- Contenido de productos destacados -->
+        
+        <!-- Sección para listar productos con paginación -->
+        <div class="container">
+            
+            <div class="product-list">
+                {{#each products}}
+                <div class="product">
+                    <img src="{{this.image}}" alt="{{this.title}}">
+                    <h2>{{this.title}}</h2>
+                    <p>{{this.description}}</p>
+                    <p class="price">${{this.price}}</p>
+                    <!-- Enlace para ver detalles del producto -->
+                    <a href="/products/{{this._id}}">Ver Detalles</a>
+                    <!-- Botón para agregar directamente al carrito -->
+                    <button onclick="addToCart('{{this._id}}')">Agregar al Carrito</button>
+                </div>
+                {{/each}}
+            </div>
+            <!-- Paginación -->
+            <div class="pagination">
+                {{#if hasPrevPage}}
+                <a href="{{prevLink}}">Anterior</a>
+                {{/if}}
+                {{#if hasNextPage}}
+                <a href="{{nextLink}}">Siguiente</a>
+                {{/if}}
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tu Tienda</p>
+    </footer>
+    <script src="/cart.js"></script>
+</body>
+</html>

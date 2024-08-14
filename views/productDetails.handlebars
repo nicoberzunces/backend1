@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles del Producto</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Detalles del Producto</h1>
+  </header>
+  <main>
+    {{#if product}}
+      <div class="product-detail">
+        <img src="{{product.image}}" alt="{{product.name}}" class="product-image">
+        <h2>{{product.name}}</h2>
+        <p>{{product.description}}</p>
+        <button id="addToCart" data-product-id="{{product._id}}">Agregar al carrito</button>
+      </div>
+    {{else}}
+      <p>Producto no encontrado.</p>
+    {{/if}}
+  </main>
+  <script src="/cart.js"></script>
+</body>
+</html>

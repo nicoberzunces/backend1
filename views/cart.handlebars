@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Carrito de Compras</h1>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/products">Ver Productos</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Productos en tu carrito</h2>
+        {{#if cart.products.length}}
+        <div class="cart-items">
+            {{#each cart.products}}
+            <div class="cart-item">
+                <img src="{{this.image}}" alt="{{this.title}}">
+                <h2>{{this.title}}</h2>
+                <p>{{this.description}}</p>
+                <p class="price">${{this.price}}</p>
+                <p>Cantidad: {{this.quantity}}</p>
+                <button onclick="removeFromCart('{{this._id}}')">Eliminar</button>
+            </div>
+            {{/each}}
+        </div>
+        <div class="cart-summary">
+            <h3>Total: ${{cart.totalPrice}}</h3>
+            <a href="/checkout">Proceder al Pago</a>
+        </div>
+        {{else}}
+        <p>Tu carrito está vacío.</p>
+        {{/if}}
+    </main>
+    <footer>
+        <p>&copy; 2024 Tu Tienda</p>
+    </footer>
+    <script src="/cart.js"></script>
+</body>
+</html>

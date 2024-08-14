@@ -1,0 +1,129 @@
+[
+    {
+      "id": "1",
+      "title": "Samsung Galaxy S21",
+      "description": "Potente smartphone con cámara de alta resolución y pantalla AMOLED.",
+      "code": "S21-001",
+      "price": 999,
+      "status": true,
+      "stock": 15,
+      "category": "Celulares",
+      "image": [
+        "https://http2.mlstatic.com/D_NQ_NP_802098-MLA53734551392_022023-O.webp"
+      ]
+     
+    },
+    {
+      "id": "2",
+      "title": "iPhone 13 Pro",
+      "description": "Último modelo de iPhone con triple cámara y chip A15 Bionic.",
+      "code": "IP13-002",
+      "price": 1299,
+      "status": true,
+      "stock": 10,
+      "category": "Celulares",
+      "image": [
+        "https://http2.mlstatic.com/D_NQ_NP_973345-MLA47781591382_102021-O.webp"
+      ]
+    
+    },
+    {
+      "id": "3",
+      "title": "Xiaomi Redmi Note 10",
+      "description": "Económico y potente con pantalla de 120Hz y cámara cuádruple.",
+      "code": "RN10-003",
+      "price": 299,
+      "status": true,
+      "stock": 20,
+      "category": "Celulares",
+      "image": [
+        "https://tiendaonline.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/r/e/redmi-note-13-negro-_c-accesorios_.png"
+      ]
+     
+    },
+    {
+      "id": "4",
+      "title": "Google Pixel 5",
+      "description": "Smartphone con enfoque en la fotografía y actualizaciones rápidas de Android.",
+      "code": "PIX5-004",
+      "price": 699,
+      "status": true,
+      "stock": 8,
+      "category": "Celulares",
+      "image": [
+        "https://http2.mlstatic.com/D_NQ_NP_929202-MLA50145175713_052022-O.webp"
+      ]
+    
+    },
+  {
+    "id": "5",
+    "title": "OnePlus 9",
+    "description": "Smartphone con rendimiento de alta gama y pantalla Fluid AMOLED de 120Hz.",
+    "code": "OP9-005",
+    "price": 749,
+    "status": true,
+    "stock": 12,
+    "category": "Celulares",
+    "image": [
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRt-dvbN4r6x_SV3yUnlk_Nc3DATS6mLdII_Wt1KnF3iTVQhdiCwFTvuWYm_3Ci67STn-kaH4YcvLglhA1ep87qdHYU8Wjb"
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Sony Xperia 5 III",
+    "description": "Celular con cámara triple y pantalla 4K OLED para una experiencia visual impresionante.",
+    "code": "X5III-006",
+    "price": 949,
+    "status": true,
+    "stock": 7,
+    "category": "Celulares",
+    "image": [
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXx4XuereyleiFRtnxBKZuo-SVeOAg4RekFLyEu3vdNiCju4Zoi_XFWmUEwe_JS3nryaPLpv2tiNLsV3QPnQ5nQEr4cHUPbw"
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Auriculares Inalámbricos",
+    "description": "Auriculares con cancelación de ruido, diseño over-ear y 20 horas de batería.",
+    "price": 199.99,
+    "category": "Electrónica",
+    "status": true,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_657854-MLU70810934461_082023-O.webp"
+  },
+  {
+    "id": "8",
+    "title": "Televisor LED 4K",
+    "description": "Televisor LED Ultra HD de 55 pulgadas con funciones smart y soporte HDR.",
+    "price": 599.99,
+    "category": "Electrónica",
+    "status": true,
+    "image": "https://medias.musimundo.com/medias/size515-149868-01.jpg?context=bWFzdGVyfGltYWdlc3w5MzEyMnxpbWFnZS9qcGVnfGFHSXpMMmhpTUM4eE1EVTJPRFk1TmpreU1qRTBNaTl6YVhwbE5URTFYekUwT1RnMk9GOHdNUzVxY0djfGYwZTJiYjA2NThiZmY4M2E0ZmE4NWNlMmE0MGM1YWRkZjAzNTU3NDRkYzZmMmU5MDhjNDU0YmI3ZGQ2NjVmZmE"
+  },
+  {
+    "id": "9",
+    "title": "Campera hombre",
+    "description": "Chaqueta de cuero genuino con diseño clásico y ajuste cómodo.",
+    "price": 149.99,
+    "category": "Ropa",
+    "status": true,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_710065-MLA46241130526_062021-O.webp"
+  },
+  {
+    "id": "10",
+    "title": "Vestido de Verano para Mujer",
+    "description": "Vestido ligero y fresco para el verano, ideal para días calurosos.",
+    "price": 49.99,
+    "category": "Ropa",
+    "status": true,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_667905-MLA69747354504_062023-O.webp"
+  },
+  {
+    "id": "11",
+    "title": "Zapatillas para Correr",
+    "description": "Zapatillas ligeras y transpirables para correr, ideales para uso diario.",
+    "price": 79.99,
+    "category": "Ropa",
+    "status": true,
+    "image": "https://nikearprod.vtexassets.com/arquivos/ids/701118-800-800?width=800&height=800&aspect=true"
+  }
+] 
